@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Конвертер PDF в HTML с распознаванием текста (OCR) прямо в браузере.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="PDF, HTML, OCR, парсинг, учебники, задачи, браузер">
+    <link rel="stylesheet" href="style.css">
+    <title>PDF → HTML Парсер с OCR</title>
+</head>
+<body>
+    <h1>Конвертер PDF в HTML с OCR</h1>
+    <p>Перетащите PDF-файл в область ниже или нажмите кнопку для выбора.</p>
+
+    <!-- Новый блок с чекбоксами -->
+    <div class="ocr-options">
+        <label>
+            <input type="checkbox" id="use-ocr-checkbox"> использовать OCR (оптическое распознавание текста) ОСТОРОЖНО РАБОТАЕТ ОЧЕНЬ МЕДЛЕННО
+        </label>
+        <div id="ocr-suboptions" style="display: none; margin-left: 20px; margin-top: 5px;">
+            <label>
+                <input type="checkbox" id="include-txt-checkbox" checked> весь текст дополнительно в отдельном файле .txt
+            </label><br>
+            <label>
+                <input type="checkbox" id="overlay-text-checkbox"> распознанный текст разместить по верх страницы
+            </label>
+        </div>
+    </div>
+
+    <div id="drop-area">
+        <p>Перетащите файл PDF сюда</p>
+        <p>или</p>
+        <label for="file-input" class="button">Выбрать PDF</label>
+    </div>
+
+    <input type="file" id="file-input" accept=".pdf,application/pdf" />
+    <div id="result-area"></div>
+    <a id="download-link" style="display: none;" class="button">Скачать ZIP-архив</a>
+
+    <!-- Библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <!-- Наш скрипт -->
+    <script src="script.js"></script>
+</body>
+</html>
